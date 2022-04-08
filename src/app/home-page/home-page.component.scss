@@ -1,8 +1,14 @@
 .container__home {
   display: flex;
   justify-content: space-around;
+  background-color: #FFB6C1;
+  padding-top: 125px;
+  padding-bottom: 85px;
 }
 
 .image {
-  height: 600px;
+  height: 450px;
+  width: 35%;
+  border-radius: 120px 0 0 0;
+  position: absolute;
 }
