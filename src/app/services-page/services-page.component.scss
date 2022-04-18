@@ -1,0 +1,38 @@
+.container__servies {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 85px;
+  padding-top: 125px;
+}
+
+.image {
+  border-radius: 120px 0 0 0;
+  height: 450px;
+  position: absolute;
+  width: 35%;
+}
+
+.title__list {
+  color: darkslateblue;
+  margin: 0;
+}
+
+.list {
+  list-style-type: none;
+  &__li {
+    display: flex;
+    gap: 22px;
+
+    .descriptionList {
+
+      .description {
+        margin-top: 7px;
+      }
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
