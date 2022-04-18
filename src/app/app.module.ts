@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomePageComponent } from "./home-page/home-page.component";
 import { ContactPageComponent} from "./contact-page/contact-page.component";
 import { HeadComponent } from './head/head.component';
+import { ServicesPageComponent } from './services-page/services-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeadComponent } from './head/head.component';
     PageNotFoundComponent,
     HomePageComponent,
     ContactPageComponent,
-    HeadComponent
+    HeadComponent,
+    ServicesPageComponent
   ],
   imports: [
     BrowserModule,
