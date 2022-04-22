@@ -8,6 +8,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { ContactPageComponent} from "./contact-page/contact-page.component";
 import { HeadComponent } from './head/head.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
+import { GallerPageComponent } from './galler-page/galler-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     HomePageComponent,
     ContactPageComponent,
     HeadComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    GallerPageComponent
   ],
   imports: [
     BrowserModule,
