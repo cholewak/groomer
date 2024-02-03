@@ -1,16 +1,9 @@
 <div class="menu">
   <ul>
-    <li>
-      Strona główna
-    </li>
-    <li>
-      Cennik
-    </li>
-    <li>
-      Galleria
-    </li>
-    <li>
-      Kontakt
+    <li *ngFor="let page of manuList">
+      <a [href]="page.link">
+        {{page.name}}
+      </a>
     </li>
   </ul>
 </div>

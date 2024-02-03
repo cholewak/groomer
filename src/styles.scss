@@ -35,3 +35,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+a, a:active, a:focus, a:visited{
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #808002;
+}
