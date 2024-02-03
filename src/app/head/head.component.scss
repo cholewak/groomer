@@ -2,6 +2,7 @@
   height: 105px;
   display: flex;
   background-color: white;
+  padding: 0 20px;
 }
 
 .head__logo-container {
@@ -31,19 +32,6 @@
   width: 380px;
   position: relative;
   top: -35px;
-}
-
-.head__ul{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  li {
-    list-style-type: none;
-    margin: 0 5px;
-    cursor: pointer;
-
-  }
 }
 
 .button__img {
