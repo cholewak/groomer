@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.__line {
+  position: absolute;
+  right: 0px;
+  width: 28px;
+  height: 4px;
+  background: #FFB6C1;
+  transition: background 200ms;
+}
+
+.__line--first {
+  top: 0;
+}
+
+.__line--second {
+  top: 15px;
+}
+
+.__line--third {
+  top: 30px;
+}
+
+
+.rotateFirstLine{
+  color: red;
+}
+
+.rotateSecondLine{
+  color: blue;
+}
+
+.rotateLastLine{
+  color: green;
+}

@@ -1,4 +1,7 @@
 <div class="menu">
+  <button class="__button" (click)="toggleOpen()">
+    <app-burger [open]="open"></app-burger>
+  </button>
   <ul>
     <li *ngFor="let page of manuList">
       <a [href]="page.link">
