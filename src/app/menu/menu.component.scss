@@ -10,3 +10,71 @@ ul{
 
   }
 }
+
+.button {
+  display: none;
+}
+
+.displey__mobile {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .button{
+    display: block;
+  }
+   ul {
+     flex-direction: column;
+     position: fixed;
+     top: 0%;
+     left: 0;
+     height: 100%;
+     backdrop-filter: blur(4px);
+     z-index: 2;
+     li {;
+       font-size: 40px;
+     }
+   }
+
+  .displey__mobile {
+    display: block;
+  }
+}
+
+.font{
+  font-size: 40px;
+}
+
+.hamburger__link {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  position: relative;
+  bottom: 0;
+}
+
+.hamburger__button {
+  a {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.big__size{
+  font-size: 40px;
+}
+
+.border{
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 23px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
