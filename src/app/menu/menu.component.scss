@@ -1,80 +1,92 @@
-ul{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  li {
-    list-style-type: none;
-    cursor: pointer;
+ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
-  }
+    li {
+        list-style-type: none;
+        cursor: pointer;
+
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+        @media(max-width: 920px) {
+            display: none;
+        }
+    }
 }
 
 .button {
-  display: none;
+    display: none;
 }
 
 .displey__mobile {
-  display: none;
+    display: none;
 }
 
 @media (max-width: 920px) {
-  .button{
-    display: block;
-  }
-   ul {
-     flex-direction: column;
-     position: fixed;
-     top: 0%;
-     left: 0;
-     height: 100%;
-     backdrop-filter: blur(4px);
-     z-index: 2;
-     li {;
-       font-size: 40px;
-     }
-   }
+    .button {
+        display: block;
+    }
+    ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0%;
+        left: 0;
+        height: 100%;
+        backdrop-filter: blur(4px);
+        z-index: 2;
 
-  .displey__mobile {
-    display: block;
-  }
+        li {;
+            font-size: 40px;
+        }
+    }
+
+    .displey__mobile {
+        display: block;
+    }
 }
 
-.font{
-  font-size: 40px;
+.font {
+    font-size: 40px;
 }
 
 .hamburger__link {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 20px;
-  position: relative;
-  bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;
+    bottom: 0;
 }
 
 .hamburger__button {
-  a {
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      width: 40px;
-      height: 40px;
+    a {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
     }
-  }
 }
 
-.big__size{
-  font-size: 40px;
+.big__size {
+    font-size: 40px;
 }
 
-.border{
-  padding: 5px;
-  border: 2px solid black;
-  border-radius: 23px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+.border {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 23px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }

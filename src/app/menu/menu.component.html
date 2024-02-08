@@ -1,46 +1,46 @@
 <div class="menu">
-  <div class="button" (click)="toggleOpen()">
-    <app-burger [open]="open"></app-burger>
-  </div>
-  <ul>
-    <li *ngFor="let page of manuList">
-      <a [href]="page.link">
-        {{page.name}}
-      </a>
-    </li>
-    <div class="hamburger__button border displey__mobile">
-      <a class="button"
-         href="">
-        <img src="../../assets/img/phone.png"
-             class="button__img"
-             alt="phone"/> <span class="big__size">+48 000 000 000</span>
-      </a>
+    <div class="button" (click)="toggleOpen()">
+        <app-burger [open]="open"></app-burger>
     </div>
-    <div class="hamburger__link displey__mobile" >
-      <div class="hamburger__button displey__mobile">
-        <a class="button"
-           href="">
-          <img src="../../assets/img/facebok.png"
-               class="button__img"
-               alt="facebook"/>
-        </a>
-      </div>
-      <div class="hamburger__button displey__mobile">
-        <a class="button"
-           href="">
-          <img src="../../assets/img/instagram.png"
-               class="button__img"
-               alt="instagram"/>
-        </a>
-      </div>
-      <div class="hamburger__button displey__mobile">
-        <a class="button"
-           href="">
-          <img src="../../assets/img/toktok.png"
-               class="button__img"
-               alt="tiktok"/>
-        </a>
-      </div>
-    </div>
-  </ul>
+    <ul class="menu__list">
+        <li *ngFor="let page of manuList">
+            <a [href]="page.link">
+                {{page.name}}
+            </a>
+        </li>
+        <div class="hamburger__button border displey__mobile">
+            <a class="button"
+               href="">
+                <img src="../../assets/img/phone.png"
+                     class="button__img"
+                     alt="phone"/> <span class="big__size">+48 000 000 000</span>
+            </a>
+        </div>
+        <div class="hamburger__link displey__mobile">
+            <div class="hamburger__button displey__mobile">
+                <a class="button"
+                   href="">
+                    <img src="../../assets/img/facebok.png"
+                         class="button__img"
+                         alt="facebook"/>
+                </a>
+            </div>
+            <div class="hamburger__button displey__mobile">
+                <a class="button"
+                   href="">
+                    <img src="../../assets/img/instagram.png"
+                         class="button__img"
+                         alt="instagram"/>
+                </a>
+            </div>
+            <div class="hamburger__button displey__mobile">
+                <a class="button"
+                   href="">
+                    <img src="../../assets/img/toktok.png"
+                         class="button__img"
+                         alt="tiktok"/>
+                </a>
+            </div>
+        </div>
+    </ul>
 </div>
