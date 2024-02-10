@@ -10,8 +10,9 @@
         &-container {
             display: flex;
             justify-content: center;
-            flex-basis: 20%;
+            width: 20%;
             height: 180px;
+            z-index: 1;
         }
     }
 
@@ -20,13 +21,18 @@
     }
 
     &__col {
-        flex-basis: 40%;
+        width: 40%;
         display: flex;
         align-items: center;
         column-gap: 5px;
-        justify-content: end;
+        justify-content: center;
+        z-index: 2;
         @media(max-width: 920px) {
             justify-content: start;
+            &:last-child{
+                display: none;
+                justify-content: center;
+            }
         }
     }
 
@@ -34,6 +40,13 @@
         width: 380px;
         position: relative;
         top: -35px;
+    }
+
+    &__button:last-child {
+        padding-right: 30px;
+        @media(max-width: 920px) {
+            padding: 0;
+        }
     }
 }
 
