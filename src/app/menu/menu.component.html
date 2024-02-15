@@ -1,8 +1,9 @@
 <div class="menu">
-    <div class="button" (click)="toggleOpen()">
+    <div class="button__hamburger" (click)="toggleOpen()">
         <app-burger [open]="open"></app-burger>
     </div>
-    <ul class="menu__list">
+    <ul class="menu__list"
+        [ngClass]="open ? 'menu__list--mobile' : ''">
         <li *ngFor="let page of manuList">
             <a [href]="page.link">
                 {{page.name}}

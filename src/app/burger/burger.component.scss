@@ -3,6 +3,7 @@
     position: relative;
     width: 30px;
     height: 30px;
+    margin: 8px 9px
 }
 
 .__line {
@@ -32,6 +33,8 @@
 .rotateFirstLine {
     transform: rotate(45deg);
     top: 15px;
+    width: 35px;
+    left: -2px;
 }
 
 .rotateSecondLine {
@@ -41,5 +44,6 @@
 .rotateLastLine {
     transform: rotate(-45deg);
     top: 15px;
-    left: 2px;
+    left: -2px;
+    width: 35px;
 }

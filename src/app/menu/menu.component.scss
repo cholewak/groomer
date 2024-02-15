@@ -18,11 +18,24 @@ ul {
         @media(max-width: 920px) {
             display: none;
         }
+        &--mobile {
+            display: flex;
+        }
+        .exitButton{
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
     }
 }
 
-.button {
+.button__hamburger {
     display: none;
+    position: fixed;
+    z-index: 1000;
+    display: block;
+    background: white;
+    border-radius: 8px
 }
 
 .displey__mobile {
@@ -30,7 +43,7 @@ ul {
 }
 
 @media (max-width: 920px) {
-    .button {
+    .button__hamburger {
         display: block;
     }
     ul {
@@ -39,7 +52,7 @@ ul {
         top: 0%;
         left: 0;
         height: 100%;
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(5px);
         z-index: 2;
 
         li {;

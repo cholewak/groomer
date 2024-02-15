@@ -18,7 +18,7 @@ export class MenuComponent {
     this.open = !this.open;
     console.log(this.open);
   }
-  open = false;
+  public open = false;
   public manuList: Array<PageList> = [
     {
       name: 'Strona główna',
