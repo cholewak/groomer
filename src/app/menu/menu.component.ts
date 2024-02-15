@@ -16,6 +16,7 @@ export interface PageList {
 export class MenuComponent {
   toggleOpen() {
     this.open = !this.open;
+    console.log(this.open);
   }
   open = false;
   public manuList: Array<PageList> = [
