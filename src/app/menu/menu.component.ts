@@ -7,11 +7,10 @@ export interface PageList {
   link: string,
 }
 @Component({
-  selector: 'app-menu',
-  standalone: true,
-  imports: [CommonModule, BurgerComponent],
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'app-menu',
+    imports: [CommonModule, BurgerComponent],
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
   toggleOpen() {

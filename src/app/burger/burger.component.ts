@@ -3,11 +3,10 @@ import {CommonModule} from "@angular/common";
 
 
 @Component({
-  selector: 'app-burger',
-  standalone: true,
-  templateUrl: './burger.component.html',
-  styleUrls: ['./burger.component.scss'],
-  imports: [CommonModule]
+    selector: 'app-burger',
+    templateUrl: './burger.component.html',
+    styleUrls: ['./burger.component.scss'],
+    imports: [CommonModule]
 })
 export class BurgerComponent {
   @Input() open: boolean = false;

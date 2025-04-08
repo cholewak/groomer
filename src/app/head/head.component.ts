@@ -3,10 +3,9 @@ import {CommonModule} from "@angular/common";
 import {MenuComponent} from "../menu/menu.component";
 
 @Component({
-  selector: 'app-head',
-  standalone: true,
-  templateUrl: './head.component.html',
-  styleUrls: ['./head.component.scss'],
+    selector: 'app-head',
+    templateUrl: './head.component.html',
+    styleUrls: ['./head.component.scss'],
     imports: [CommonModule, MenuComponent]
 })
 export class HeadComponent implements OnInit {
