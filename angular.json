@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "grom:build:production"
+              "buildTarget": "grom:build:production"
             },
             "development": {
-              "browserTarget": "grom:build:development"
+              "buildTarget": "grom:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "grom:build"
+            "buildTarget": "grom:build"
           }
         },
         "test": {
@@ -107,5 +107,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5d680b7e-5423-4b71-a452-3219b920347f"
   }
 }
