@@ -7,7 +7,7 @@ import {CommonModule} from "@angular/common";
     styleUrls: ['./services-page.component.scss'],
     imports: [CommonModule]
 })
-export class PageNotFoundComponent implements OnInit {
+export class ServicesPageComponent implements OnInit {
 
   constructor() { }
 

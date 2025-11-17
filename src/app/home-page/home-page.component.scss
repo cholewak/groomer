@@ -6,6 +6,21 @@
     padding-bottom: 85px;
     padding-top: 125px;
     min-height: 250px;
+    scroll-margin-top: 105px;
+
+    @media (max-width: 920px) {
+        padding-top: 80px;
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+        scroll-margin-top: 80px;
+    }
+
+    @media (max-width: 480px) {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        scroll-margin-top: 70px;
+    }
 }
 
 .inner-container {
@@ -55,7 +70,12 @@
             display: block;
             margin: 0 auto;
             border-radius: 5px;
-            object-fit: contain
+            object-fit: cover;
+        }
+
+        @media (max-width: 480px) {
+            height: 180px;
+            border-radius: 8px;
         }
     }
 }

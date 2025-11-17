@@ -15,24 +15,35 @@ export interface PageList {
 export class MenuComponent {
   toggleOpen() {
     this.open = !this.open;
-    console.log(this.open);
   }
+
+  scrollToSection(link: string, event: Event): void {
+    event.preventDefault();
+    if (link.startsWith('#')) {
+      const element = document.querySelector(link);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.open = false; // Close mobile menu after clicking
+      }
+    }
+  }
+
   public open = false;
-  public manuList: Array<PageList> = [
+  public menuList: Array<PageList> = [
     {
       name: 'Strona główna',
-      link: ''
+      link: '#home'
     },
     {
       name: 'Usługi',
-      link: ''
+      link: '#services'
     },
     {
-      name: 'Galleria',
-      link: ''
+      name: 'Galeria',
+      link: '#gallery'
     },
     {
       name: 'Kontakt',
-      link: ''
+      link: '#contact'
     }];
 }

@@ -40,7 +40,7 @@ ul {
     left: 20px;
 }
 
-.displey__mobile {
+.display__mobile {
     display: none;
 }
 
@@ -57,12 +57,12 @@ ul {
         backdrop-filter: blur(5px);
         z-index: 2;
 
-        li {;
+        li {
             font-size: 40px;
         }
     }
 
-    .displey__mobile {
+    .display__mobile {
         display: block;
     }
 }

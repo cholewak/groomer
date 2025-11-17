@@ -1,0 +1,41 @@
+<div class="container container__reviews">
+    <div class="inner-container">
+        <h2 class="title">Opinie klientów</h2>
+        <div class="rating-summary" *ngIf="!isLoading && reviews.length > 0">
+            <div class="average-rating">
+                <span class="rating-number">{{ averageRating.toFixed(1) }}</span>
+                <div class="stars">
+                    <span *ngFor="let filled of getStars(roundRating(averageRating))" class="star filled">★</span>
+                    <span *ngFor="let empty of getStars(5 - roundRating(averageRating))" class="star">☆</span>
+                </div>
+                <p class="review-count">Na podstawie {{ reviews.length }} opinii</p>
+            </div>
+        </div>
+        <div class="reviews-wrapper" *ngIf="!isLoading">
+            <div class="review-card" *ngFor="let review of reviews">
+                <div class="review-header">
+                    <div class="author-info">
+                        <div class="author-avatar">
+                            {{ review.author_name.charAt(0) }}
+                        </div>
+                        <div class="author-details">
+                            <h4 class="author-name">{{ review.author_name }}</h4>
+                            <span class="review-date">{{ formatDate(review.time) }}</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span *ngFor="let filled of getStars(review.rating)" class="star filled">★</span>
+                        <span *ngFor="let empty of getStars(5 - review.rating)" class="star">☆</span>
+                    </div>
+                </div>
+                <div class="review-content">
+                    <p>{{ review.text }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="loading" *ngIf="isLoading">
+            <p>Ładowanie opinii...</p>
+        </div>
+    </div>
+</div>
+

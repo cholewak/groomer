@@ -1,0 +1,23 @@
+<div class="container container__facebook">
+    <div class="inner-container">
+        <h2 class="title">Najnowsze wpisy z Facebooka</h2>
+        <div class="posts-wrapper" *ngIf="!isLoading">
+            <div class="post-card" *ngFor="let post of posts">
+                <div class="post-header">
+                    <img src="../../assets/img/facebok.png" alt="Facebook" class="facebook-icon">
+                    <span class="post-date">{{ formatDate(post.created_time) }}</span>
+                </div>
+                <div class="post-content">
+                    <p>{{ post.message }}</p>
+                </div>
+                <a [href]="post.link" target="_blank" rel="noopener noreferrer" class="post-link" *ngIf="post.link">
+                    Zobacz na Facebooku →
+                </a>
+            </div>
+        </div>
+        <div class="loading" *ngIf="isLoading">
+            <p>Ładowanie wpisów...</p>
+        </div>
+    </div>
+</div>
+

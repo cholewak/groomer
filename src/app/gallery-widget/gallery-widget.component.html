@@ -1,1 +1,14 @@
-<p>galler-page works!</p>
+<div id="gallery" class="container container__gallery">
+    <div class="inner-container">
+        <h2 class="title">Galeria</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" *ngFor="let image of galleryImages">
+                <img [src]="image.src" [alt]="image.alt" (click)="openLightbox(image)">
+            </div>
+        </div>
+    </div>
+    <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img [src]="selectedImage.src" [alt]="selectedImage.alt">
+    </div>
+</div>
