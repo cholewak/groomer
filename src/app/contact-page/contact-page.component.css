@@ -1,19 +1,19 @@
 .container__contact {
-    background-color: #FFB6C1;
-    padding: 85px 20px;
+    background-color: white;
+    padding: 85px 20px 0 20px;
     min-height: 400px;
-    scroll-margin-top: 105px;
+    scroll-margin-top: 140px;
 }
 
 @media (max-width: 920px) {
     .container__contact {
-        scroll-margin-top: 80px;
+        scroll-margin-top: 120px;
     }
 }
 
 @media (max-width: 480px) {
     .container__contact {
-        scroll-margin-top: 70px;
+        scroll-margin-top: 110px;
     }
 }
 
@@ -36,6 +36,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out;
 
     @media (max-width: 920px) {
         grid-template-columns: 1fr;
@@ -43,10 +44,26 @@
     }
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-info {
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @media (max-width: 920px) {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .info-item {
@@ -54,11 +71,19 @@
         color: crimson;
         margin-bottom: 10px;
         font-size: 1.3rem;
+
+        @media (max-width: 920px) {
+            text-align: center;
+        }
     }
 
     p {
         line-height: 1.8;
         color: #333;
+
+        @media (max-width: 920px) {
+            text-align: center;
+        }
 
         a {
             color: #333;
@@ -165,19 +190,47 @@
 
 .map-wrapper {
     margin-top: 50px;
+    background-color: white;
+    padding: 50px 0 0 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 0;
+    padding-bottom: 0;
 
-    h3 {
+    @media (max-width: 920px) {
+        padding: 40px 0 0 0;
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 0 0 0;
+    }
+
+    .title {
         text-align: center;
-        margin-bottom: 20px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
         color: #333;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: bold;
+        padding: 0 20px;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
     }
 }
 
 .map-iframe {
-    border-radius: 10px;
     width: 100%;
     min-height: 450px;
+    display: block;
+    border: none;
 
     @media (max-width: 768px) {
         min-height: 300px;
@@ -185,7 +238,6 @@
 
     @media (max-width: 480px) {
         min-height: 250px;
-        border-radius: 8px;
     }
 }
 

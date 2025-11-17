@@ -25,53 +25,45 @@ export class FacebookPostsComponent implements OnInit {
   }
 
   loadFacebookPosts(): void {
-    // In production, you would fetch posts from Facebook Graph API
-    // For now, using mock data
-    // To integrate with Facebook API, you'll need:
-    // 1. Facebook App ID and App Secret
-    // 2. Access Token
-    // 3. Page ID
+    // Wpisz tutaj swoje dane Facebook API
+    const pageId = 'YOUR_FACEBOOK_PAGE_ID'; // ID strony Facebook salonu
+    const accessToken = 'YOUR_FACEBOOK_ACCESS_TOKEN'; // Long-lived access token
     
-    setTimeout(() => {
-      // Mock data - replace with actual API call
-      this.posts = [
-        {
-          id: '1',
-          message: 'Zapraszamy do naszego salonu! Nowe usługi groomerskie już dostępne.',
-          created_time: new Date().toISOString(),
-          link: 'https://facebook.com'
-        },
-        {
-          id: '2',
-          message: 'Piękna metamorfoza naszego klienta! Zobaczcie efekt przed i po.',
-          created_time: new Date(Date.now() - 86400000).toISOString(),
-          link: 'https://facebook.com'
-        },
-        {
-          id: '3',
-          message: 'Specjalna oferta na grudzień! Rabat 20% na wszystkie usługi.',
-          created_time: new Date(Date.now() - 172800000).toISOString(),
-          link: 'https://facebook.com'
-        }
-      ];
-      this.isLoading = false;
-    }, 1000);
-
-    // Example API call (uncomment and configure):
-    /*
-    const pageId = 'YOUR_PAGE_ID';
-    const accessToken = 'YOUR_ACCESS_TOKEN';
-    fetch(`https://graph.facebook.com/v18.0/${pageId}/posts?access_token=${accessToken}`)
+    // Pobierz wpisy z Facebook Graph API
+    fetch(`https://graph.facebook.com/v18.0/${pageId}/posts?fields=message,created_time,permalink_url&limit=5&access_token=${accessToken}`)
       .then(response => response.json())
       .then(data => {
-        this.posts = data.data;
-        this.isLoading = false;
+        if (data.data && data.data.length > 0) {
+          this.posts = data.data.map((post: any) => ({
+            id: post.id,
+            message: post.message || 'Brak treści',
+            created_time: post.created_time,
+            link: post.permalink_url || `https://facebook.com/${pageId}`
+          }));
+          this.isLoading = false;
+        } else {
+          throw new Error('No posts found');
+        }
       })
       .catch(error => {
         console.error('Error loading Facebook posts:', error);
+        // Fallback do mock data jeśli API nie działa
+        this.posts = [
+          {
+            id: '1',
+            message: 'Zapraszamy do naszego salonu! Nowe usługi groomerskie już dostępne.',
+            created_time: new Date().toISOString(),
+            link: 'https://facebook.com'
+          },
+          {
+            id: '2',
+            message: 'Piękna metamorfoza naszego klienta! Zobaczcie efekt przed i po.',
+            created_time: new Date(Date.now() - 86400000).toISOString(),
+            link: 'https://facebook.com'
+          }
+        ];
         this.isLoading = false;
       });
-    */
   }
 
   formatDate(dateString: string): string {

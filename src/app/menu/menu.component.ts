@@ -22,7 +22,14 @@ export class MenuComponent {
     if (link.startsWith('#')) {
       const element = document.querySelector(link);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const headerOffset = 120;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
         this.open = false; // Close mobile menu after clicking
       }
     }

@@ -5,8 +5,10 @@
             <div class="average-rating">
                 <span class="rating-number">{{ averageRating.toFixed(1) }}</span>
                 <div class="stars">
-                    <span *ngFor="let filled of getStars(roundRating(averageRating))" class="star filled">★</span>
-                    <span *ngFor="let empty of getStars(5 - roundRating(averageRating))" class="star">☆</span>
+                    <span *ngFor="let filled of getStarArray(averageRating)" 
+                          [class]="filled ? 'star filled' : 'star'">
+                        {{ filled ? '★' : '☆' }}
+                    </span>
                 </div>
                 <p class="review-count">Na podstawie {{ reviews.length }} opinii</p>
             </div>
@@ -24,8 +26,10 @@
                         </div>
                     </div>
                     <div class="review-rating">
-                        <span *ngFor="let filled of getStars(review.rating)" class="star filled">★</span>
-                        <span *ngFor="let empty of getStars(5 - review.rating)" class="star">☆</span>
+                        <span *ngFor="let filled of getStarArray(review.rating)" 
+                              [class]="filled ? 'star filled' : 'star'">
+                            {{ filled ? '★' : '☆' }}
+                        </span>
                     </div>
                 </div>
                 <div class="review-content">

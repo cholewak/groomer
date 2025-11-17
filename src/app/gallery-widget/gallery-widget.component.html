@@ -1,14 +1,58 @@
-<div id="gallery" class="container container__gallery">
-    <div class="inner-container">
-        <h2 class="title">Galeria</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" *ngFor="let image of galleryImages">
-                <img [src]="image.src" [alt]="image.alt" (click)="openLightbox(image)">
+<section id="gallery" class="gallery">
+  <div class="gallery__container">
+    <div class="gallery__header">
+      <h2 class="gallery__title">Galeria</h2>
+      <p class="gallery__subtitle">Zobacz efekty naszej pracy</p>
+    </div>
+    
+    <div class="gallery__carousel-wrapper">
+      <button 
+        class="gallery__nav gallery__nav--prev" 
+        (click)="previousSlide()"
+        aria-label="Poprzednie zdjęcie">
+        <span>‹</span>
+      </button>
+      
+      <div class="gallery__carousel" #carousel>
+        <div 
+          class="gallery__slide" 
+          *ngFor="let image of galleryImages; let i = index"
+          [class.active]="currentSlide === i"
+          [style.transform]="'translateX(' + (i - currentSlide) * 100 + '%)'">
+          <div class="gallery__slide-content" (click)="openLightbox(image)">
+            <img [src]="image.src" [alt]="image.alt" class="gallery__slide-image">
+            <div class="gallery__slide-overlay">
+              <span class="gallery__slide-icon">🔍</span>
             </div>
+          </div>
         </div>
+      </div>
+      
+      <button 
+        class="gallery__nav gallery__nav--next" 
+        (click)="nextSlide()"
+        aria-label="Następne zdjęcie">
+        <span>›</span>
+      </button>
     </div>
-    <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img [src]="selectedImage.src" [alt]="selectedImage.alt">
+    
+    <div class="gallery__indicators">
+      <button 
+        *ngFor="let image of galleryImages; let i = index"
+        class="gallery__indicator"
+        [class.active]="currentSlide === i"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Przejdź do zdjęcia ' + (i + 1)">
+      </button>
     </div>
-</div>
+  </div>
+  
+  <div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+    <button class="lightbox__close" (click)="closeLightbox(); $event.stopPropagation()" aria-label="Zamknij">
+      <span>&times;</span>
+    </button>
+    <div class="lightbox__content" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="lightbox__image">
+    </div>
+  </div>
+</section>
