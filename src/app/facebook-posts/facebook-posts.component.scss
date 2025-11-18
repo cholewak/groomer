@@ -1,123 +1,238 @@
-.container__facebook {
-    background-color: white;
-    padding: 85px 20px;
-    min-height: 400px;
+.facebook-posts {
+  background: white;
+  padding: 120px 20px;
+  position: relative;
+  scroll-margin-top: 120px;
+  overflow: hidden;
+
+  @media (max-width: 920px) {
+    padding: 100px 15px;
+    scroll-margin-top: 120px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 80px 10px;
+    scroll-margin-top: 110px;
+  }
 }
 
-.inner-container {
-    max-width: 1500px;
-    width: 100%;
-    margin: 0 auto;
+.facebook-posts__container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.title {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2.5rem;
+.facebook-posts__header {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeInUp 0.8s ease-out;
+
+  @media (max-width: 480px) {
     margin-bottom: 50px;
-    color: #333;
-
-    @media (max-width: 768px) {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
+  }
 }
 
-.posts-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+.facebook-posts__badge {
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #1877f2, #0d5dbf);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
+}
 
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+.facebook-posts__title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #2c2c2c;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+
+  @media (max-width: 920px) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+  }
+}
+
+.facebook-posts__subtitle {
+  font-size: 1.3rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
+.facebook-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+
+  @media (max-width: 920px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .post-card {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: fadeInUp 0.6s ease-out backwards;
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  animation: fadeInUp 0.6s ease-out backwards;
+  position: relative;
+  overflow: hidden;
 
-    &:nth-child(1) {
-        animation-delay: 0.15s;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1877f2, #0d5dbf);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
 
-    &:nth-child(2) {
-        animation-delay: 0.3s;
-    }
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
 
-    &:nth-child(3) {
-        animation-delay: 0.45s;
-    }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-color: #1877f2;
 
-    &:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    &::before {
+      transform: scaleX(1);
     }
+  }
+}
+
+.post-card__header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-card__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.post-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.post-card__meta {
+  flex: 1;
+}
+
+.post-card__author {
+  font-weight: 700;
+  color: #2c2c2c;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.post-card__date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.post-card__content {
+  margin-bottom: 20px;
+
+  p {
+    line-height: 1.8;
+    color: #333;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.post-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1877f2;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: gap 0.3s;
+
+  &:hover {
+    gap: 12px;
+    color: #0d5dbf;
+  }
+
+  svg {
+    transition: transform 0.3s;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.facebook-posts__loading {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 182, 193, 0.2);
+  border-top-color: #FFB6C1;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.post-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.facebook-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.post-date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.post-content {
-    margin-bottom: 15px;
-
-    p {
-        line-height: 1.6;
-        color: #333;
-        margin: 0;
-    }
-}
-
-.post-link {
-    display: inline-block;
-    color: #1877f2;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-
-    &:hover {
-        color: #0d5dbf;
-        text-decoration: underline;
-    }
-}
-
-.loading {
-    text-align: center;
-    padding: 50px;
-    color: #666;
-    font-size: 1.2rem;
-}
-

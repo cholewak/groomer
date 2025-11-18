@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {CommonModule} from "@angular/common";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
+interface ContactInfo {
+  icon: string;
+  title: string;
+  text: string;
+}
+
 @Component({
     selector: 'app-contact-page',
     templateUrl: './contact-page.component.html',
@@ -13,6 +19,29 @@ export class ContactPageComponent implements OnInit {
   isSubmitting = false;
   formMessage = '';
   formSuccess = false;
+
+  contactInfo: ContactInfo[] = [
+    {
+      icon: '📍',
+      title: 'Adres',
+      text: 'ul. Przykładowa 123<br>00-000 Warszawa'
+    },
+    {
+      icon: '📞',
+      title: 'Telefon',
+      text: '<a href="tel:+48000000000">+48 000 000 000</a>'
+    },
+    {
+      icon: '✉️',
+      title: 'Email',
+      text: '<a href="mailto:kontakt&#64;salon.pl">kontakt&#64;salon.pl</a>'
+    },
+    {
+      icon: '🕐',
+      title: 'Godziny otwarcia',
+      text: 'Pon-Pt: 9:00 - 18:00<br>Sb: 9:00 - 15:00<br>Nd: Zamknięte'
+    }
+  ];
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -31,15 +60,10 @@ export class ContactPageComponent implements OnInit {
       this.isSubmitting = true;
       this.formMessage = '';
 
-      // Simulate email sending - in production, use a service to send email
       const formData = this.contactForm.value;
       
-      // You can integrate with email service like EmailJS, SendGrid, or your backend
-      // For now, we'll simulate it
       setTimeout(() => {
         console.log('Form data:', formData);
-        // In production, replace this with actual email service call
-        // Example: this.emailService.sendEmail(formData).subscribe(...)
         
         this.isSubmitting = false;
         this.formSuccess = true;

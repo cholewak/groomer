@@ -1,36 +1,66 @@
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Salon Groomerski</h3>
-            <p>Profesjonalna pielęgnacja Twojego pupila</p>
+  <div class="footer__container">
+    <div class="footer__content">
+      <div class="footer__section">
+        <div class="footer__logo">
+          <img src="../../assets/img/logo_cut.png" alt="Salon Groomerski" class="footer__logo-img">
         </div>
-        <div class="footer-section">
-            <h3>Kontakt</h3>
-            <p>ul. Przykładowa 123</p>
-            <p>00-000 Warszawa</p>
-            <p><a href="tel:+48000000000">+48 000 000 000</a></p>
-            <p><a href="mailto:kontakt&#64;salon.pl">kontakt&#64;salon.pl</a></p>
+        <p class="footer__description">
+          Profesjonalna pielęgnacja psów i kotów. Doświadczenie, pasja i miłość do zwierząt w każdym zabiegu.
+        </p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <img src="../../assets/img/facebok.png" alt="Facebook">
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <img src="../../assets/img/instagram.png" alt="Instagram">
+          </a>
         </div>
-        <div class="footer-section">
-            <h3>Godziny otwarcia</h3>
-            <p>Pon-Pt: 9:00 - 18:00</p>
-            <p>Sb: 9:00 - 15:00</p>
-            <p>Nd: Zamknięte</p>
-        </div>
-        <div class="footer-section">
-            <h3>Śledź nas</h3>
-            <div class="social-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <img src="../../assets/img/facebok.png" alt="Facebook" class="social-icon">
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <img src="../../assets/img/instagram.png" alt="Instagram" class="social-icon">
-                </a>
-            </div>
-        </div>
+      </div>
+      
+      <div class="footer__section">
+        <h3 class="footer__title">Kontakt</h3>
+        <ul class="footer__list">
+          <li>
+            <span class="footer__icon">📍</span>
+            <span>ul. Przykładowa 123<br>00-000 Warszawa</span>
+          </li>
+          <li>
+            <span class="footer__icon">📞</span>
+            <a href="tel:+48000000000">+48 000 000 000</a>
+          </li>
+          <li>
+            <span class="footer__icon">✉️</span>
+            <a href="mailto:kontakt&#64;salon.pl">kontakt&#64;salon.pl</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="footer__section">
+        <h3 class="footer__title">Godziny Otwarcia</h3>
+        <ul class="footer__list">
+          <li>Poniedziałek - Piątek</li>
+          <li class="footer__hours">9:00 - 18:00</li>
+          <li>Sobota</li>
+          <li class="footer__hours">9:00 - 15:00</li>
+          <li>Niedziela</li>
+          <li class="footer__hours">Zamknięte</li>
+        </ul>
+      </div>
+      
+      <div class="footer__section">
+        <h3 class="footer__title">Szybkie Linki</h3>
+        <ul class="footer__links">
+          <li><a href="#home">Strona Główna</a></li>
+          <li><a href="#services">Usługi</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; {{ currentYear }} Salon Groomerski. Wszelkie prawa zastrzeżone.</p>
+    
+    <div class="footer__bottom">
+      <p>&copy; {{ currentYear }} Salon Groomerski Karolina Jakubek. Wszelkie prawa zastrzeżone.</p>
     </div>
+  </div>
 </footer>
-

@@ -1,23 +1,37 @@
-<div class="container container__facebook">
-    <div class="inner-container">
-        <h2 class="title">Najnowsze wpisy z Facebooka</h2>
-        <div class="posts-wrapper" *ngIf="!isLoading">
-            <div class="post-card" *ngFor="let post of posts">
-                <div class="post-header">
-                    <img src="../../assets/img/facebok.png" alt="Facebook" class="facebook-icon">
-                    <span class="post-date">{{ formatDate(post.created_time) }}</span>
-                </div>
-                <div class="post-content">
-                    <p>{{ post.message }}</p>
-                </div>
-                <a [href]="post.link" target="_blank" rel="noopener noreferrer" class="post-link" *ngIf="post.link">
-                    Zobacz na Facebooku →
-                </a>
-            </div>
-        </div>
-        <div class="loading" *ngIf="isLoading">
-            <p>Ładowanie wpisów...</p>
-        </div>
+<section class="facebook-posts">
+  <div class="facebook-posts__container">
+    <div class="facebook-posts__header">
+      <div class="facebook-posts__badge">📱 Facebook</div>
+      <h2 class="facebook-posts__title">Najnowsze Wpisy</h2>
+      <p class="facebook-posts__subtitle">Śledź nas na Facebooku i bądź na bieżąco</p>
     </div>
-</div>
-
+    
+    <div class="facebook-posts__grid" *ngIf="!isLoading">
+      <article class="post-card" *ngFor="let post of posts; let i = index">
+        <div class="post-card__header">
+          <div class="post-card__avatar">
+            <img src="../../assets/img/facebok.png" alt="Facebook" class="post-card__avatar-img">
+          </div>
+          <div class="post-card__meta">
+            <div class="post-card__author">Salon Groomerski</div>
+            <div class="post-card__date">{{ formatDate(post.created_time) }}</div>
+          </div>
+        </div>
+        <div class="post-card__content">
+          <p>{{ post.message }}</p>
+        </div>
+        <a [href]="post.link" target="_blank" rel="noopener noreferrer" class="post-card__link">
+          <span>Czytaj więcej</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </article>
+    </div>
+    
+    <div class="facebook-posts__loading" *ngIf="isLoading">
+      <div class="loader"></div>
+      <p>Ładowanie wpisów...</p>
+    </div>
+  </div>
+</section>

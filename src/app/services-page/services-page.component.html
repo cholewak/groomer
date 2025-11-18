@@ -1,54 +1,24 @@
 <section id="services" class="services">
   <div class="services__container">
     <div class="services__header">
-      <h2 class="services__title">Nasze Usługi</h2>
-      <p class="services__subtitle">Kompleksowa pielęgnacja Twojego pupila</p>
+      <div class="services__badge">🐾 Nasze Usługi</div>
+      <h2 class="services__title">Kompleksowa Pielęgnacja</h2>
+      <p class="services__subtitle">Wszystko czego potrzebuje Twój pupil w jednym miejscu</p>
     </div>
+    
     <div class="services__grid">
-      <div class="service-card">
-        <div class="service-card__icon">
-          <img src="../../assets/icons/dog.png" alt="Grooming">
+      <div class="service-card" *ngFor="let service of services; let i = index">
+        <div class="service-card__icon-wrapper">
+          <div class="service-card__icon">
+            <span class="service-card__icon-emoji">{{ service.emoji }}</span>
+          </div>
+          <div class="service-card__icon-glow"></div>
         </div>
-        <h3 class="service-card__title">Strzyżenie i Trymowanie</h3>
-        <p class="service-card__description">
-          Profesjonalne strzyżenie dostosowane do rasy i preferencji. Używamy najnowszych technik i narzędzi.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <img src="../../assets/icons/dog.png" alt="Kąpiel">
+        <h3 class="service-card__title">{{ service.title }}</h3>
+        <p class="service-card__description">{{ service.description }}</p>
+        <div class="service-card__features">
+          <span class="service-card__feature" *ngFor="let feature of service.features">{{ feature }}</span>
         </div>
-        <h3 class="service-card__title">Kąpiel i Suszenie</h3>
-        <p class="service-card__description">
-          Delikatna kąpiel z użyciem profesjonalnych kosmetyków oraz bezpieczne suszenie.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <img src="../../assets/icons/dog.png" alt="Pazury">
-        </div>
-        <h3 class="service-card__title">Obcinanie Pazurów</h3>
-        <p class="service-card__description">
-          Bezpieczne i precyzyjne obcinanie pazurów z dbałością o komfort pupila.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <img src="../../assets/icons/dog.png" alt="Czyszczenie">
-        </div>
-        <h3 class="service-card__title">Czyszczenie Uszu</h3>
-        <p class="service-card__description">
-          Profesjonalne czyszczenie uszu z użyciem bezpiecznych preparatów.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <img src="../../assets/icons/dog.png" alt="Kompleksowa">
-        </div>
-        <h3 class="service-card__title">Pakiet Kompleksowy</h3>
-        <p class="service-card__description">
-          Wszystkie usługi w jednym pakiecie - oszczędność czasu i pieniędzy.
-        </p>
       </div>
     </div>
   </div>
