@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {MenuComponent} from "../menu/menu.component";
 
@@ -9,10 +9,16 @@ import {MenuComponent} from "../menu/menu.component";
     imports: [CommonModule, MenuComponent]
 })
 export class HeadComponent implements OnInit {
+  isScrolled = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isScrolled = scrollPosition > 50;
+  }
 }
