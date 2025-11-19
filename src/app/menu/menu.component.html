@@ -1,39 +1,44 @@
 <div class="menu">
-    <div class="button__hamburger" (click)="toggleOpen()">
+    <button class="menu__hamburger" (click)="toggleOpen()" [attr.aria-expanded]="open" aria-label="Menu">
         <app-burger [open]="open"></app-burger>
-    </div>
-    <ul class="menu__list"
-        [ngClass]="open ? 'menu__list--mobile' : ''">
+    </button>
+    
+    <!-- Desktop Menu -->
+    <ul class="menu__list menu__list--desktop">
         <li *ngFor="let page of menuList">
-            <a [href]="page.link" (click)="scrollToSection(page.link, $event)">
+            <a [href]="page.link" (click)="scrollToSection(page.link, $event)" class="menu__link">
                 {{page.name}}
             </a>
         </li>
-        <div class="hamburger__button border display__mobile">
-            <a class="button"
-               href="">
-                <img src="../../assets/img/phone.png"
-                     class="button__img"
-                     alt="phone"/> <span class="big__size">+48 000 000 000</span>
-            </a>
-        </div>
-        <div class="hamburger__link display__mobile">
-            <div class="hamburger__button display__mobile">
-                <a class="button"
-                   href="">
-                    <img src="../../assets/img/facebok.png"
-                         class="button__img"
-                         alt="facebook"/>
-                </a>
-            </div>
-            <div class="hamburger__button display__mobile">
-                <a class="button"
-                   href="">
-                    <img src="../../assets/img/instagram.png"
-                         class="button__img"
-                         alt="instagram"/>
-                </a>
-            </div>
-        </div>
     </ul>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu__overlay" [class.menu__overlay--active]="open" (click)="toggleOpen()"></div>
+    
+    <!-- Mobile Menu -->
+    <nav class="menu__mobile" [class.menu__mobile--active]="open">
+        <ul class="menu__list menu__list--mobile">
+            <li *ngFor="let page of menuList" class="menu__item">
+                <a [href]="page.link" (click)="scrollToSection(page.link, $event)" class="menu__link menu__link--mobile">
+                    {{page.name}}
+                </a>
+            </li>
+        </ul>
+
+        <div class="menu__mobile-footer">
+            <a href="tel:+48000000000" class="menu__phone">
+                <img src="../../assets/img/phone.png" class="menu__phone-icon" alt="phone"/>
+                <span class="menu__phone-text">+48 000 000 000</span>
+            </a>
+            
+            <div class="menu__social">
+                <a href="#" class="menu__social-link" aria-label="Facebook">
+                    <img src="../../assets/img/facebok.png" class="menu__social-icon" alt="facebook"/>
+                </a>
+                <a href="#" class="menu__social-link" aria-label="Instagram">
+                    <img src="../../assets/img/instagram.png" class="menu__social-icon" alt="instagram"/>
+                </a>
+            </div>
+        </div>
+    </nav>
 </div>
