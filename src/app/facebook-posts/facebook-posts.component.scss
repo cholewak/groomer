@@ -1,17 +1,17 @@
 .facebook-posts {
   background: white;
-  padding: 120px 20px;
+  padding: 120px 20px 140px;
   position: relative;
   scroll-margin-top: 120px;
-  overflow: hidden;
+  overflow: visible;
 
   @media (max-width: 920px) {
-    padding: 100px 15px;
+    padding: 100px 15px 120px;
     scroll-margin-top: 120px;
   }
 
   @media (max-width: 480px) {
-    padding: 80px 10px;
+    padding: 80px 10px 100px;
     scroll-margin-top: 110px;
   }
 }
@@ -63,19 +63,20 @@
 
 .facebook-posts__carousel-wrapper {
   position: relative;
-  padding: 0 60px;
+  padding: 20px 60px;
 
   @media (max-width: 920px) {
-    padding: 0 50px;
+    padding: 20px 50px;
   }
 
   @media (max-width: 480px) {
-    padding: 0 40px;
+    padding: 20px 40px;
   }
 }
 
 .facebook-posts__carousel {
-  overflow: hidden;
+  overflow: visible;
+  padding: 10px 0;
 }
 
 .facebook-posts__grid {
@@ -83,6 +84,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   transition: transform 0.5s ease-in-out;
+  align-items: start;
 
   @media (max-width: 920px) {
     grid-template-columns: repeat(2, 1fr);
@@ -91,7 +93,7 @@
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
 }
 
@@ -104,7 +106,8 @@
   border: 2px solid transparent;
   animation: fadeInUp 0.6s ease-out backwards;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  will-change: transform, box-shadow;
 
   &::before {
     content: '';
@@ -116,6 +119,8 @@
     background: linear-gradient(90deg, #1877f2, #0d5dbf);
     transform: scaleX(0);
     transition: transform 0.4s;
+    border-radius: 20px 20px 0 0;
+    z-index: 1;
   }
 
   &:nth-child(1) { animation-delay: 0.1s; }
@@ -123,13 +128,17 @@
   &:nth-child(3) { animation-delay: 0.3s; }
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     border-color: #1877f2;
 
     &::before {
-      transform: scaleX(1);
+      transform: scaleX(0.93);
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
   }
 }
 
@@ -283,12 +292,12 @@
   }
 
   @media (max-width: 480px) {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     
     svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
   }
 }

@@ -1,8 +1,8 @@
 .reviews {
   background: linear-gradient(135deg, #FFB6C1 0%, #ffa8b8 100%);
-  padding: 120px 20px;
+  padding: 120px 20px 140px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   scroll-margin-top: 120px;
 
   &::before {
@@ -17,12 +17,12 @@
   }
 
   @media (max-width: 920px) {
-    padding: 100px 15px;
+    padding: 100px 15px 120px;
     scroll-margin-top: 120px;
   }
 
   @media (max-width: 480px) {
-    padding: 80px 10px;
+    padding: 80px 10px 100px;
     scroll-margin-top: 110px;
   }
 }
@@ -87,9 +87,13 @@
   border-radius: 25px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
   border: 3px solid rgba(255, 255, 255, 0.5);
+  max-width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 480px) {
-    padding: 30px 40px;
+    padding: 25px 20px;
+    width: calc(100% - 20px);
+    margin: 0 10px;
   }
 }
 
@@ -137,19 +141,20 @@
 
 .reviews__carousel-wrapper {
   position: relative;
-  padding: 0 60px;
+  padding: 20px 60px;
 
   @media (max-width: 920px) {
-    padding: 0 50px;
+    padding: 20px 50px;
   }
 
   @media (max-width: 480px) {
-    padding: 0 40px;
+    padding: 20px 40px;
   }
 }
 
 .reviews__carousel {
-  overflow: hidden;
+  overflow: visible;
+  padding: 10px 0;
 }
 
 .reviews__grid {
@@ -157,6 +162,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   transition: transform 0.5s ease-in-out;
+  align-items: start;
 
   @media (max-width: 920px) {
     grid-template-columns: repeat(2, 1fr);
@@ -165,7 +171,7 @@
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
 }
 
@@ -177,6 +183,8 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInScale 0.6s ease-out backwards;
   border: 2px solid transparent;
+  position: relative;
+  will-change: transform, box-shadow;
 
   &:nth-child(1) { animation-delay: 0.1s; }
   &:nth-child(2) { animation-delay: 0.2s; }
@@ -184,9 +192,13 @@
   &:nth-child(4) { animation-delay: 0.4s; }
 
   &:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     border-color: rgba(255, 182, 193, 0.5);
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
   }
 }
 
@@ -197,6 +209,13 @@
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 .review-card__avatar {
@@ -232,9 +251,25 @@
 
 .review-card__rating {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
 
   .star {
     font-size: 1.2rem;
+    line-height: 1;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -277,11 +312,11 @@
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.95) translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -323,12 +358,12 @@
   }
 
   @media (max-width: 480px) {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     
     svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
   }
 }
