@@ -52,11 +52,63 @@
   font-size: 1.3rem;
   color: #666;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   line-height: 1.6;
 
   @media (max-width: 480px) {
     font-size: 1.1rem;
+  }
+}
+
+.scroll-down-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FFB6C1;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: #ff9eb5;
+  }
+}
+
+.scroll-down-text {
+  display: block;
+  transform: translateY(0);
+  animation: slowFadeInOut 3s ease-in-out infinite, slowPulse 3s ease-in-out infinite;
+}
+
+.scroll-down-arrow {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  animation: slowFadeInOut 3s ease-in-out infinite, slowPulse 3s ease-in-out infinite;
+}
+
+@keyframes slowFadeInOut {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slowPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
   }
 }
 

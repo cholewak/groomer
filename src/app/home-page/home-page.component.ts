@@ -14,4 +14,23 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollToSection(link: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    if (link.startsWith('#')) {
+      const element = document.querySelector(link);
+      if (element) {
+        const headerOffset = 120;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }
+
 }
