@@ -65,13 +65,6 @@ export class ContactPageComponent implements OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  scrollToContent(): void {
-    const contentElement = document.querySelector('.contact__content');
-    if (contentElement) {
-      contentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
   onSubmit(): void {
     if (this.contactForm.valid && !this.isSubmitting) {
       this.isSubmitting = true;

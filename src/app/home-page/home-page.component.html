@@ -42,8 +42,10 @@
       </div>
     </div>
   </div>
-  <div class="hero__scroll-indicator">
-    <span>Przewiń w dół</span>
-    <div class="hero__scroll-arrow"></div>
-  </div>
+  <button class="scroll-down-btn" (click)="scrollToServices()" aria-label="Przewiń w dół">
+    <span class="scroll-down-text">Przewiń w dół</span>
+    <svg class="scroll-down-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M12 19l-7-7M12 19l7-7"/>
+    </svg>
+  </button>
 </section>

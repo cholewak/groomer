@@ -315,54 +315,77 @@
 }
 
 
-.hero__scroll-indicator {
+.scroll-down-btn {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: rgba(44, 44, 44, 0.7);
-  font-size: 0.85rem;
-  font-weight: 500;
-  animation: fadeInUp 0.8s ease-out 1s backwards;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px;
+  transition: transform 0.3s ease;
   z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease-out 1s backwards;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
 
   @media (max-width: 920px) {
-    display: none;
+    bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 20px;
+    font-size: 0.9rem;
   }
 }
 
-.hero__scroll-arrow {
-  width: 2px;
-  height: 30px;
-  background: rgba(44, 44, 44, 0.5);
-  position: relative;
-  animation: scrollDown 2s ease-in-out infinite;
+.scroll-down-text {
+  display: block;
+  transform: translateY(0);
+  animation: slowFadeInOut 3s ease-in-out infinite, slowPulse 3s ease-in-out infinite;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -4px;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid rgba(44, 44, 44, 0.5);
-    border-bottom: 2px solid rgba(44, 44, 44, 0.5);
-    transform: rotate(45deg);
+.scroll-down-arrow {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: slowFadeInOut 3s ease-in-out infinite, slowPulse 3s ease-in-out infinite;
+
+  @media (max-width: 480px) {
+    width: 24px;
+    height: 24px;
   }
 }
 
-@keyframes scrollDown {
+@keyframes slowFadeInOut {
   0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
+    opacity: 0.6;
   }
   50% {
-    transform: translateY(10px);
-    opacity: 0.5;
+    opacity: 1;
+  }
+}
+
+@keyframes slowPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
   }
 }
 

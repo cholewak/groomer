@@ -33,4 +33,18 @@ export class HomePageComponent implements OnInit {
     }
   }
 
+  scrollToServices(): void {
+    const servicesElement = document.querySelector('#services');
+    if (servicesElement) {
+      const headerOffset = 120;
+      const elementPosition = servicesElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
 }
