@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import {CommonModule} from "@angular/common";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,6 +19,7 @@ export class ContactPageComponent implements OnInit {
   isSubmitting = false;
   formMessage = '';
   formSuccess = false;
+  showScrollButton = false;
 
   contactInfo: ContactInfo[] = [
     {
@@ -53,6 +54,15 @@ export class ContactPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.showScrollButton = window.scrollY > 400;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onSubmit(): void {
