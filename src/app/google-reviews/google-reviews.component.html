@@ -18,27 +18,53 @@
       </div>
     </div>
     
-    <div class="reviews__grid" *ngIf="!isLoading">
-      <article class="review-card" *ngFor="let review of reviews; let i = index">
-        <div class="review-card__header">
-          <div class="review-card__avatar">
-            {{ review.author_name.charAt(0) }}
-          </div>
-          <div class="review-card__info">
-            <div class="review-card__author">{{ review.author_name }}</div>
-            <div class="review-card__date">{{ formatDate(review.time) }}</div>
-          </div>
-          <div class="review-card__rating">
-            <span *ngFor="let filled of getStarArray(review.rating)" 
-                  [class]="filled ? 'star star--filled' : 'star'">
-              {{ filled ? '★' : '☆' }}
-            </span>
-          </div>
+    <div class="reviews__carousel-wrapper" *ngIf="!isLoading && reviews.length > 0">
+      <button class="carousel__btn carousel__btn--prev" (click)="prevSlide()" aria-label="Poprzedni slajd">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      
+      <div class="reviews__carousel">
+        <div class="reviews__grid">
+          <article class="review-card" *ngFor="let review of visibleReviews; let i = index">
+            <div class="review-card__header">
+              <div class="review-card__avatar">
+                {{ review.author_name.charAt(0) }}
+              </div>
+              <div class="review-card__info">
+                <div class="review-card__author">{{ review.author_name }}</div>
+                <div class="review-card__date">{{ formatDate(review.time) }}</div>
+              </div>
+              <div class="review-card__rating">
+                <span *ngFor="let filled of getStarArray(review.rating)" 
+                      [class]="filled ? 'star star--filled' : 'star'">
+                  {{ filled ? '★' : '☆' }}
+                </span>
+              </div>
+            </div>
+            <div class="review-card__content">
+              <p>{{ review.text }}</p>
+            </div>
+          </article>
         </div>
-        <div class="review-card__content">
-          <p>{{ review.text }}</p>
-        </div>
-      </article>
+      </div>
+      
+      <button class="carousel__btn carousel__btn--next" (click)="nextSlide()" aria-label="Następny slajd">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+      
+      <div class="carousel__dots" *ngIf="totalSlides > 1">
+        <button 
+          *ngFor="let slide of getSlideArray(); let i = index" 
+          class="carousel__dot" 
+          [class.carousel__dot--active]="currentSlideIndex === i"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Przejdź do slajdu ' + (i + 1)">
+        </button>
+      </div>
     </div>
     
     <div class="reviews__loading" *ngIf="isLoading">

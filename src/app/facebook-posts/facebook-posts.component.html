@@ -5,27 +5,54 @@
       <p class="facebook-posts__subtitle">Śledź nas na Facebooku i bądź na bieżąco</p>
     </div>
     
-    <div class="facebook-posts__grid" *ngIf="!isLoading">
-      <article class="post-card" *ngFor="let post of posts; let i = index">
-        <div class="post-card__header">
-          <div class="post-card__avatar">
-            <img src="../../assets/img/facebok.png" alt="Facebook" class="post-card__avatar-img">
-          </div>
-          <div class="post-card__meta">
-            <div class="post-card__author">Salon Groomerski</div>
-            <div class="post-card__date">{{ formatDate(post.created_time) }}</div>
-          </div>
+    <div class="facebook-posts__carousel-wrapper" *ngIf="!isLoading && posts.length > 0">
+      <button class="carousel__btn carousel__btn--prev" (click)="prevSlide()" aria-label="Poprzedni slajd">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      
+      <div class="facebook-posts__carousel">
+        <div class="facebook-posts__grid">
+          <article class="post-card" *ngFor="let post of visiblePosts; let i = index">
+            <div class="post-card__header">
+              <div class="post-card__avatar">
+                <img src="../../assets/img/facebok.png" alt="Facebook" class="post-card__avatar-img">
+              </div>
+              <div class="post-card__meta">
+                <div class="post-card__author">Salon Groomerski</div>
+                <div class="post-card__date">{{ formatDate(post.created_time) }}</div>
+              </div>
+            </div>
+            <div class="post-card__content">
+              <p>{{ post.message }}</p>
+              <img *ngIf="post.image_url" [src]="post.image_url" alt="Zdjęcie z wpisu" class="post-card__image">
+            </div>
+            <a [href]="post.link" target="_blank" rel="noopener noreferrer" class="post-card__link">
+              <span>Czytaj więcej</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </article>
         </div>
-        <div class="post-card__content">
-          <p>{{ post.message }}</p>
-        </div>
-        <a [href]="post.link" target="_blank" rel="noopener noreferrer" class="post-card__link">
-          <span>Czytaj więcej</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-      </article>
+      </div>
+      
+      <button class="carousel__btn carousel__btn--next" (click)="nextSlide()" aria-label="Następny slajd">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+      
+      <div class="carousel__dots" *ngIf="totalSlides > 1">
+        <button 
+          *ngFor="let slide of getSlideArray(); let i = index" 
+          class="carousel__dot" 
+          [class.carousel__dot--active]="currentSlideIndex === i"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Przejdź do slajdu ' + (i + 1)">
+        </button>
+      </div>
     </div>
     
     <div class="facebook-posts__loading" *ngIf="isLoading">
