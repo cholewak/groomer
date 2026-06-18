@@ -11,7 +11,7 @@ interface ContactInfo {
 @Component({
     selector: 'app-contact-page',
     templateUrl: './contact-page.component.html',
-    styleUrls: ['./contact-page.component.css'],
+    styleUrls: ['./contact-page.component.scss'],
     imports: [CommonModule, ReactiveFormsModule]
 })
 export class ContactPageComponent implements OnInit {

@@ -1,3 +1,5 @@
+@use '../../styles/breakpoints' as bp;
+
 .facebook-posts {
   background: white;
   padding: 120px 20px 140px;
@@ -5,12 +7,12 @@
   scroll-margin-top: 120px;
   overflow: visible;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     padding: 100px 15px 120px;
     scroll-margin-top: 120px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 80px 10px 100px;
     scroll-margin-top: 110px;
   }
@@ -26,7 +28,7 @@
   margin-bottom: 80px;
   animation: fadeInUp 0.8s ease-out;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     margin-bottom: 50px;
   }
 }
@@ -40,11 +42,11 @@
   text-transform: uppercase;
   letter-spacing: -1px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     font-size: 2.8rem;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 2.2rem;
   }
 }
@@ -56,7 +58,7 @@
   margin: 0 auto;
   line-height: 1.6;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 1.1rem;
   }
 }
@@ -65,11 +67,11 @@
   position: relative;
   padding: 20px 60px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     padding: 20px 50px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 20px 40px;
   }
 }
@@ -86,12 +88,12 @@
   transition: transform 0.5s ease-in-out;
   align-items: start;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     grid-template-columns: 1fr;
     gap: 15px;
   }
@@ -137,7 +139,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 20px;
   }
 }
@@ -204,7 +206,7 @@
   border-radius: 12px;
   margin-top: 15px;
   
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     height: 200px;
   }
 }
@@ -291,7 +293,7 @@
     right: 0;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 36px;
     height: 36px;
     
@@ -308,7 +310,7 @@
   gap: 10px;
   margin-top: 40px;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     margin-top: 30px;
   }
 }

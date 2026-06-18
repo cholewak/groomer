@@ -1,3 +1,5 @@
+@use '../../styles/breakpoints' as bp;
+
 .hero {
   display: flex;
   align-items: center;
@@ -7,13 +9,13 @@
   padding: 120px 20px 80px;
   scroll-margin-top: 120px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     min-height: auto;
     padding: 100px 15px 60px;
     scroll-margin-top: 120px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 80px 10px 40px;
     scroll-margin-top: 110px;
   }
@@ -59,7 +61,7 @@
   position: relative;
   z-index: 1;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     grid-template-columns: 1fr;
     gap: 50px;
   }
@@ -78,13 +80,13 @@
   color: #2c2c2c;
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 25px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 2.2rem;
     margin-bottom: 20px;
   }
@@ -106,14 +108,14 @@
   max-width: 550px;
   animation: fadeInUp 0.8s ease-out 0.4s backwards;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     text-align: center;
     max-width: 100%;
     font-size: 1.1rem;
     margin-bottom: 35px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 1rem;
     margin-bottom: 30px;
   }
@@ -126,12 +128,12 @@
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
   flex-wrap: wrap;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     justify-content: center;
     margin-bottom: 50px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     flex-direction: column;
     gap: 15px;
     margin-bottom: 40px;
@@ -201,7 +203,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 100%;
     justify-content: center;
     padding: 16px 30px;
@@ -214,12 +216,12 @@
   gap: 40px;
   animation: fadeInUp 0.8s ease-out 0.8s backwards;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     justify-content: center;
     gap: 30px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     flex-direction: column;
     gap: 20px;
     align-items: center;
@@ -229,7 +231,7 @@
 .hero__stat {
   text-align: left;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     text-align: center;
   }
 }
@@ -245,7 +247,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 2rem;
   }
 }
@@ -273,7 +275,7 @@
   transform: rotate(5deg);
   animation: float 6s ease-in-out infinite;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     display: none;
   }
 }
@@ -290,7 +292,7 @@
     transform: perspective(1000px) rotateY(0deg) scale(1.02);
   }
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     transform: none;
     
     &:hover {
@@ -305,11 +307,11 @@
   object-fit: cover;
   display: block;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     height: 400px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     height: 300px;
   }
 }
@@ -341,11 +343,11 @@
     color: rgba(255, 255, 255, 0.9);
   }
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     bottom: 30px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     bottom: 20px;
     font-size: 0.9rem;
   }
@@ -365,7 +367,7 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   animation: slowFadeInOut 3s ease-in-out infinite, slowPulse 3s ease-in-out infinite;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 24px;
     height: 24px;
   }

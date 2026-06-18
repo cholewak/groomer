@@ -1,3 +1,5 @@
+@use '../../styles/breakpoints' as bp;
+
 .gallery {
   background: linear-gradient(135deg, #FFB6C1 0%, #ffa8b8 100%);
   padding: 120px 20px;
@@ -16,12 +18,12 @@
     opacity: 0.3;
   }
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     padding: 80px 15px;
     scroll-margin-top: 120px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 60px 10px;
     scroll-margin-top: 110px;
   }
@@ -39,7 +41,7 @@
   margin-bottom: 60px;
   animation: fadeInUp 0.8s ease-out;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     margin-bottom: 40px;
   }
 }
@@ -52,11 +54,11 @@
   text-transform: uppercase;
   letter-spacing: -1px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     font-size: 2.5rem;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 2rem;
   }
 }
@@ -66,7 +68,7 @@
   color: #555;
   margin: 0;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 1.1rem;
   }
 }
@@ -76,11 +78,11 @@
   margin-bottom: 40px;
   padding: 0 60px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     padding: 0 50px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     padding: 0 40px;
   }
 }
@@ -93,12 +95,12 @@
   border-radius: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     height: 500px;
     border-radius: 25px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     height: 350px;
     border-radius: 20px;
   }
@@ -133,11 +135,11 @@
   overflow: hidden;
   border-radius: 30px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     border-radius: 25px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     border-radius: 20px;
   }
 }
@@ -165,11 +167,11 @@
   z-index: 3;
   border-radius: 30px;
 
-  @media (max-width: 920px) {
+  @include bp.mobile-layout {
     border-radius: 25px;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     border-radius: 20px;
   }
 }
@@ -187,7 +189,7 @@
   color: white;
   animation: pulse 1.5s ease-in-out infinite;
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     font-size: 3rem;
   }
 }
@@ -231,7 +233,7 @@
     right: 0;
   }
 
-  @media (max-width: 480px) {
+  @include bp.down(bp.$bp-mobile) {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
@@ -312,7 +314,7 @@
     line-height: 1;
   }
 
-  @media (max-width: 768px) {
+  @include bp.down(bp.$bp-tablet-md) {
     top: 15px;
     right: 15px;
     width: 40px;

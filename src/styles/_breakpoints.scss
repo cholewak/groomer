@@ -1,0 +1,20 @@
+// Breakpointy responsywne (mobile-first, max-width)
+$bp-desktop-lg: 1400px; // było 1200px
+$bp-tablet: 1200px;     // było 920px — główne przełączenie na layout mobilny
+$bp-tablet-md: 992px;   // było 768px
+$bp-tablet-sm: 768px;   // było 600px
+$bp-mobile: 576px;      // było 480px
+
+@mixin down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// Layout mobilny: przełączenie na hamburger przy wąskim ekranie.
+// Próg 1200px wyłapuje też telefony w trybie „wersja komputerowa” (zgłaszają ~980px).
+@mixin mobile-layout {
+  @media (max-width: $bp-tablet) {
+    @content;
+  }
+}

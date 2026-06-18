@@ -1,3 +1,5 @@
+@use '../../styles/breakpoints' as bp;
+
 .menu {
     position: relative;
 }
@@ -5,15 +7,16 @@
 // Desktop Menu
 .menu__list--desktop {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 10px 24px;
     list-style: none;
     margin: 0;
     padding: 0;
 
-    @media (max-width: 920px) {
+    @include bp.mobile-layout {
         display: none;
     }
 
@@ -73,7 +76,7 @@
         transform: scale(0.95);
     }
 
-    @media (max-width: 920px) {
+    @include bp.mobile-layout {
         display: flex !important;
     }
 }
@@ -92,7 +95,7 @@
     visibility: hidden;
     transition: all 0.3s ease;
 
-    @media (max-width: 920px) {
+    @include bp.mobile-layout {
         display: block;
     }
 
@@ -118,7 +121,7 @@
     flex-direction: column;
     overflow-y: auto;
 
-    @media (max-width: 920px) {
+    @include bp.mobile-layout {
         display: flex;
     }
 
