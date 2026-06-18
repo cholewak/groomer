@@ -25,22 +25,22 @@ export class ContactPageComponent implements OnInit {
     {
       icon: '📍',
       title: 'Adres',
-      text: 'ul. Przykładowa 123<br>00-000 Warszawa'
+      text: 'ul. Objazdowa 15<br>43-430 Skoczów'
     },
     {
       icon: '📞',
       title: 'Telefon',
-      text: '<a href="tel:+48000000000">+48 000 000 000</a>'
+      text: '<a href="tel:+48 884895777">+48 884895777</a>'
     },
     {
       icon: '✉️',
       title: 'Email',
-      text: '<a href="mailto:kontakt&#64;salon.pl">kontakt&#64;salon.pl</a>'
+      text: '<a href="mailto:salongroomingu.kj&#64;gmail.com">salongroomingu.kj&#64;gmail.com</a>'
     },
     {
       icon: '🕐',
       title: 'Godziny otwarcia',
-      text: 'Pon-Pt: 9:00 - 18:00<br>Sb: 9:00 - 15:00<br>Nd: Zamknięte'
+      text: 'Pon-Pt: 9:00 - 20:00<br>Sb: 9:00 - 20:00<br>Nd: Zamknięte'
     }
   ];
 
