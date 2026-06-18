@@ -110,7 +110,7 @@ export class FacebookPostsComponent implements OnInit {
           },
           {
             id: '4',
-            message: 'Witamy nowego członka zespołu! Nasz groomer ma 10 lat doświadczenia w pracy z psami wszystkich ras.',
+            message: 'Witamy nowego członka zespołu! Nasz groomer ma 5 lat doświadczenia w pracy z psami wszystkich ras.',
             created_time: new Date(now - 259200000).toISOString(),
             link: 'https://facebook.com',
             image_url: '../../assets/img/example_img/home.jpg'

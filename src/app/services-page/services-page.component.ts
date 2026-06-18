@@ -18,7 +18,7 @@ export class ServicesPageComponent implements OnInit {
   services: Service[] = [
     {
       emoji: '✂️',
-      title: 'Strzyżenie i Trymowanie',
+      title: 'Strzyżenie',
       description: 'Profesjonalne strzyżenie dostosowane do rasy i preferencji właściciela.',
       features: ['Wszystkie rasy', 'Nowoczesne techniki', 'Indywidualne podejście']
     },
@@ -44,7 +44,7 @@ export class ServicesPageComponent implements OnInit {
       emoji: '✨',
       title: 'Pakiet Kompleksowy',
       description: 'Wszystkie usługi w jednym pakiecie - oszczędność czasu i pieniędzy.',
-      features: ['Wszystkie usługi', 'Rabat 20%', 'Priorytetowa rezerwacja']
+      features: ['Wszystkie usługi', 'Priorytetowa rezerwacja']
     }
   ];
 
