@@ -21,9 +21,6 @@
           [style.transform]="'translateX(' + (i - currentSlide) * 100 + '%)'">
           <div class="gallery__slide-content" (click)="openLightbox(image)">
             <img [src]="image.src" [alt]="image.alt" class="gallery__slide-image">
-            <div class="gallery__slide-overlay">
-              <span class="gallery__slide-icon">🔍</span>
-            </div>
           </div>
         </div>
       </div>
