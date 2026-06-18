@@ -18,14 +18,11 @@ export class GalleryWidgetComponent implements OnInit, OnDestroy {
   private autoPlayInterval: any;
 
   galleryImages: GalleryImage[] = [
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Pielęgnacja psa - przed i po' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Strzyżenie psa rasy Golden Retriever' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Kąpiel i suszenie' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Pielęgnacja kota' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Kompleksowa pielęgnacja' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Stylizacja psa' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Pielęgnacja szczeniaka' },
-    { src: '../../assets/img/example_img/home.jpg', alt: 'Fryzura dla psa' },
+    { src: '../../assets/img/picture/5.jpg', alt: 'Pielęgnacja psa - przed i po' },
+    { src: '../../assets/img/picture/4.jpg', alt: 'Strzyżenie psa rasy Golden Retriever' },
+    { src: '../../assets/img/picture/3.jpg', alt: 'Kąpiel i suszenie' },
+    { src: '../../assets/img/picture/2.jpg', alt: 'Pielęgnacja kota' },
+    { src: '../../assets/img/picture/1.jpg', alt: 'Kompleksowa pielęgnacja' },
   ];
 
   constructor() { }
