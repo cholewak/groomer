@@ -206,6 +206,12 @@
   }
 }
 
+.footer__created {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
