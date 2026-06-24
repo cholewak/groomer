@@ -238,6 +238,19 @@
     filter: brightness(0) invert(1);
 }
 
+.menu__phone--whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.menu__phone-icon--whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    filter: none;
+}
+
 .menu__phone-text {
     font-size: 18px;
     font-weight: 600;
@@ -272,6 +285,10 @@
     width: 26px;
     height: 26px;
     object-fit: contain;
+}
+
+.menu__social-emoji {
+    font-size: 22px;
 }
 
 // Animations

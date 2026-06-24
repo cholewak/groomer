@@ -64,23 +64,24 @@
 
 
 .contact__content {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  display: flex;
+  justify-content: center;
   margin-bottom: 80px;
-
-  @include bp.mobile-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
 }
 
 .contact__info {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 25px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
   animation: fadeInLeft 0.8s ease-out;
+
+  @include bp.down(bp.$bp-tablet-md) {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
 }
 
 .contact__info-card {
@@ -109,6 +110,10 @@
       transform: translateY(-5px);
     }
   }
+}
+
+.contact__info-card--clickable {
+  cursor: pointer;
 }
 
 .contact__info-icon {

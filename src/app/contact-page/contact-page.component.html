@@ -7,14 +7,19 @@
 
     <div class="contact__content">
       <div class="contact__info">
-        <div class="contact__info-card" *ngFor="let info of contactInfo">
+        <div
+          class="contact__info-card"
+          *ngFor="let info of contactInfo"
+          (click)="onCardClick(info)"
+          [class.contact__info-card--clickable]="info.type"
+        >
           <div class="contact__info-icon">{{ info.icon }}</div>
           <h3 class="contact__info-title">{{ info.title }}</h3>
           <p class="contact__info-text" [innerHTML]="info.text"></p>
         </div>
       </div>
 
-      <div class="contact__form-wrapper">
+      <!-- <div class="contact__form-wrapper">
         <h3 class="contact__form-title">Wyślij Wiadomość</h3>
         <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
@@ -43,7 +48,7 @@
             <p [class.success]="formSuccess" [class.error]="!formSuccess">{{ formMessage }}</p>
           </div>
         </form>
-      </div>
+      </div> -->
     </div>
 
     <div class="contact__map-section">

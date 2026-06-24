@@ -6,6 +6,7 @@ interface ContactInfo {
   icon: string;
   title: string;
   text: string;
+  type?: 'address' | 'phone' | 'email' | 'facebook' | 'whatsapp';
 }
 
 @Component({
@@ -25,22 +26,37 @@ export class ContactPageComponent implements OnInit {
     {
       icon: '📍',
       title: 'Adres',
-      text: 'ul. Objazdowa 15<br>43-430 Skoczów'
+      text: 'ul. Objazdowa 15<br>43-430 Skoczów',
+      type: 'address'
     },
     {
       icon: '📞',
       title: 'Telefon',
-      text: '<a href="tel:+48 884895777">+48 884895777</a>'
+      text: '+48 884 895 777',
+      type: 'phone'
     },
     {
       icon: '✉️',
       title: 'Email',
-      text: '<a href="mailto:salongroomingu.kj&#64;gmail.com">salongroomingu.kj&#64;gmail.com</a>'
+      text: 'salongroomingu.kj&#64;gmail.com',
+      type: 'email'
+    },
+    {
+      icon: '📘',
+      title: 'Facebook',
+      text: 'Odwiedź nas na Facebooku',
+      type: 'facebook'
+    },
+    {
+      icon: '💬',
+      title: 'WhatsApp',
+      text: 'Napisz przez WhatsApp: +48 884 895 777',
+      type: 'whatsapp'
     },
     {
       icon: '🕐',
       title: 'Godziny otwarcia',
-      text: 'Pon-Pt: 9:00 - 20:00<br>Sb: 9:00 - 20:00<br>Nd: Zamknięte'
+      text: 'Pon-Pt: 9:00 - 20:00<br>Sb: Zamknięte<br>Nd: Zamknięte'
     }
   ];
 
@@ -51,6 +67,38 @@ export class ContactPageComponent implements OnInit {
       phone: [''],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
+  }
+
+  onCardClick(info: ContactInfo): void {
+    switch (info.type) {
+      case 'address':
+        window.open(
+          'https://www.google.com/maps?q=Salon+pielęgnacji+psów+i+kotów+Karolina+Jakubek,+Objazdowa+15,+43-430+Skoczów&hl=pl&z=18',
+          '_blank',
+        );
+        break;
+      case 'phone':
+        window.location.href = 'tel:+48884895777';
+        break;
+      case 'email': {
+        const email = 'salongroomingu.kj@gmail.com';
+        const gmailComposeUrl =
+          'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email);
+        window.open(gmailComposeUrl, '_blank');
+        break;
+      }
+      case 'facebook':
+        window.open(
+          'https://www.facebook.com/p/Salon-piel%C4%99gnacji-ps%C3%B3w-i-kot%C3%B3w-Karolina-Jakubek-100078916577702/',
+          '_blank',
+        );
+        break;
+      case 'whatsapp':
+        window.open('https://wa.me/48884895777', '_blank');
+        break;
+      default:
+        break;
+    }
   }
 
   ngOnInit(): void {
